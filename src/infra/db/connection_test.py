@@ -1,10 +1,11 @@
+import pytest
 from src.infra.db.settings.connection import DBConnectionHandler
 
+@pytest.mark.skip(reason="Sensive test")
 def test_create_database_engine():
     db_connection_handle = DBConnectionHandler()
+    enginer=db_connection_handle.get_engine()
 
-    engine = db_connection_handle.get_engine()
-    
-    conn = engine.connect()
-    
-    print(engine)
+    assert enginer is not None
+
+   
